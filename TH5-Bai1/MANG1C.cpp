@@ -44,7 +44,15 @@ bool MANG1C::ktra_sdx(int x)
     }
     return 1;
 }
-MANG1C::~MANG1C() {};
+MANG1C::~MANG1C()
+{
+    if (a != NULL)
+    {
+        delete[] a;
+        a = NULL;
+        n = 0;
+    }
+};
 MANG1C::MANG1C() {};
 MANG1C::MANG1C(int n)
 {
@@ -270,6 +278,7 @@ void MANG1C::xoa_phan_tu(int vt)
         n--;
         if (n == 0)
         {
+            delete[] a;
             a = NULL;
         }
     }
